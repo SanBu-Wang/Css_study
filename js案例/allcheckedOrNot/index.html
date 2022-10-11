@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <p><input type="checkbox" name="" id="demo-1"><label for="demo-1"> demo_1</label></p>
+    <p><input type="checkbox" name="" id="demo-2"><label for="demo-2">demo_2</label></p>
+    <p><input type="checkbox" name="" id="demo-3"><label for="demo-3">demo_3</label></p>
+    <p><input type="checkbox" name="" id="demo-4"><label for="demo-4">demo_4</label></p>
+</form>
+<button>all Checked</button>
+<button>All don't choose</button>
+<button>The selected</button>
+<script>
+    let options = document.getElementsByTagName("input")
+    let btnS = document.getElementsByTagName("button")
+    btnS[0].onclick = function () {
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = true
+        }
+    }
+    btnS[1].onclick = function () {
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = false
+        }
+    }
+    btnS[2].onclick = function () {
+        for (let i = 0; i < options.length; i++) {
+            options[i].checked = !options[i].checked
+        }
+    }
+</script>
+</body>
+</html>

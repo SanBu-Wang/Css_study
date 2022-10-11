@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    #big {
+        background: #3748da;
+        width: 400px;
+        height: 400px;
+    }
+
+    .small {
+        display: flex;
+    }
+
+    .small div {
+        background: var(--clr);
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<body>
+<div>
+    <div id="big"></div>
+</div>
+<div class="small">
+    <div class="item" style="--clr:pink;"></div>
+    <div class="item" style="--clr:skyblue;"></div>
+    <div class="item" style="--clr:purple;"></div>
+    <div class="item" style="--clr:#13d5b0;"></div>
+</div>
+<script>
+    let colors = ['pink','skyblue','purple','#13d5b0']
+    let Sondivs = document.getElementsByClassName('item')
+    let mother = document.getElementById('big')
+
+    //console.log(Sondivs.length)
+    console.log(Sondivs[1].innerHTML);
+    for (let i = 0; i < Sondivs.length; i++) {
+        Sondivs[i].onmouseover = function () {
+            console.log(Sondivs[i].innerHTML)
+            //mother.innerHTML = Sondivs[i].innerHTML
+            mother.style.backgroundColor = colors[i]
+        }
+    }
+</script>
+</body>
+</html>
