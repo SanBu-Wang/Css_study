@@ -1,2 +1,2 @@
-# Css_study
-study css or scss
+# Web study
+For study JavaScript and others
