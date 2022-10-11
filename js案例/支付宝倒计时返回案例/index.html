@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            font-family: "微软雅黑 Light", sans-serif;
+            width: 300px;
+            height: auto;
+            background-color: lightskyblue;
+            padding: 30px 10px;
+            margin: 0 auto;
+            color: white;
+            text-align: center;
+            transition: all .8s ease-in-out;
+        }
+
+        button {
+            padding: 10px 30px;
+            margin: 40px 20px;
+            background: rgba(255, 255, 255, 0.5);
+            color: white;
+            transition: all .4s ease-in-out;
+            border: none;
+            outline: none;
+        }
+
+        button:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <p style="font-weight: 300;font-size: 30px">商品：<span>Web前端课程</span></p>
+    <p>原价：<s>1980</s>￥</p>
+    <p>现价：1.98￥</p>
+    <p>内容：HTML、CSS、JS</p>
+    <hr style="border-color: lightpink;width: 90px;">
+    <p>地址：北京市朝阳区</p>
+    <p>
+        <button>Cancel</button>
+        <button>confirm</button>
+    </p>
+</div>
+<script>
+    //点击支付打开确认框
+    const confirm = document.querySelector("button:last-child")
+    //拿到p标签中的文字
+    const pTitle = document.querySelector("span").innerHTML
+    //添加点击事件
+    console.log("you are clicking me");
+    confirm.onclick = () => {
+        let answer = window.confirm(`您选择了"${pTitle}",您确定要支付吗`)
+        if (answer) {
+            //打开新页面
+            window.open("jumpTo.html")
+        }
+    }
+</script>
+</body>
+</html>

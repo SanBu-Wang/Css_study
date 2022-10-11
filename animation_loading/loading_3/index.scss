@@ -1,0 +1,69 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  //禁止用户选中文本
+  -webkit-user-select: none;
+}
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .btn {
+    background: black;
+    border: none;
+    outline: none;
+    //outline: white 3px solid;
+    padding: 10px 15px;
+    z-index: 1;
+    border-radius: 12px;
+    position: relative;
+    color: darkblue;
+    //遮住before多出来的部分
+    overflow: hidden;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: -2;
+      //更改旋转的圆心
+      transform-origin: 0 0;
+      animation: Scale 1s infinite linear; //线性循环
+
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      background: black;
+      left: 2px;
+      top: 2px;
+      right: 2px;
+      bottom: 2px;
+      border-radius: 12px;
+      z-index: -1;
+      animation: hue-rotate 1s infinite linear;
+    }
+
+    @keyframes Scale {
+      to {
+        transform: rotate(1turn); //一圈
+      }
+    }
+
+    @keyframes hue-rotate {
+        to {
+            filter: hue-rotate(360deg);
+        }
+    }
+  }
+}

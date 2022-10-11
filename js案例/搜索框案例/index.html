@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        input[type='text'] {
+            height: 40px;
+            width: 300px;
+        }
+
+        button {
+            width: 100px;
+            height: 46px;
+        }
+        #show{
+            border: 1px solid #b3a8a8;
+            width: 306px;
+            height: 200px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="content">
+        <input id="val" type="text" placeholder="请输入课程名称">
+        <button id="sub">提交</button>
+    </div>
+    <div id="show"></div>
+</div>
+<script>
+    let arr=['web前端经营特训班 1000￥','HTML核心技术 200￥','JavaScript高级技术 900￥','Vue核心','全栈精品课程','web实验精品课程 0￥']
+    //拿到所有需要操控的元素
+    let searchValue = document.querySelector('#val')
+    let startBtn = document.querySelector('#sub')
+    let showArea = document.querySelector('#show')
+
+    searchValue.onkeyup = () =>{
+        console.log('触发键盘事件');
+        showArea.style.display = 'block'
+        if(searchValue.value === ""){
+            showArea.style.display = 'none'
+        }
+
+        //字符串匹配indexOf(),若匹配不到返回-1，否则返回相应值的下标
+        let str=""
+        arr.forEach((item)=>{
+            let isSame = item.indexOf(searchValue.value)
+            if(isSame !== -1){
+                str += `<p>${item}</p>`
+            }
+            //判断用户输入的值是否存在
+            if(!searchValue.value && !str){
+                showArea.innerHTML = `<p>暂无结果</p>`
+            }
+            showArea.innerHTML = str
+        })
+    }
+    searchValue.onblur = () =>{
+        showArea.style.display = 'none'
+    }
+
+</script>
+</body>
+</html>

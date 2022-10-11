@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        ul{
+            list-style-type: none;
+            transform: translateX(-20px);
+        }
+        ul li{
+            float: left;
+            cursor: pointer;
+        }
+        li:not(:last-child){
+            margin-right: 10px;
+        }
+        .card{
+            width: 300px;
+            height: 300px;
+            display: none;
+        }
+        .card_one{
+            background: linear-gradient(to bottom, rgb(134, 239, 172), rgb(59, 130, 246), rgb(147, 51, 234));
+        }
+        .card_two{
+            background: linear-gradient(to right, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8));
+        }
+        .card_three{
+            background: linear-gradient(to right, rgb(249, 168, 212), rgb(216, 180, 254), rgb(129, 140, 248));
+        }
+        .card_four{
+            background: linear-gradient(to right, rgb(134, 239, 172), rgb(253, 224, 71), rgb(249, 168, 212));
+        }
+        span{
+            padding: 5px;
+            border-radius: 3px;
+            background: rgba(130, 161, 162, 0.5);
+            color: lightcyan;
+            transition: background linear 0.2s;
+        }
+        li:hover > span{
+            background: rgba(130, 161, 162, 0.9);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><span>color_one</span></li>
+    <li><span>color_two</span></li>
+    <li><span>color_three</span></li>
+    <li><span>color_four</span></li>
+</ul>
+<div class="card card_four" style=""></div>
+<div class="card card_one"></div>
+<div class="card card_two"></div>
+<div class="card card_three"></div>
+<script>
+    //拿到数组和div
+    let arrLis = document.getElementsByTagName('li')
+    let arrDivs= document.getElementsByClassName('card')
+    const content = document.getElementsByClassName('content')
+    //for (let index in arrLis) {
+    for (let i = 0; i < arrLis.length; i++) {
+        arrLis[i].onmouseover = function (){
+            arrDivs[i].style.display = 'block'
+            }
+        arrLis[i].onmouseout = function (){
+            arrDivs[i].style.display = 'none'
+        }
+        arrDivs[i].onmouseover = function (){
+            arrDivs[i].style.display = 'block'
+        }
+    }
+</script>
+</body>
+</html>

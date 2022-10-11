@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #output {
+            background: #d8d1d1;
+            color: lightcyan;
+            font-style: italic;
+            display: inline-block;
+            width: 130px;
+            height: 40px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .container {
+            border: 1px solid gray;
+            height: 200px;
+            width: 500px;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+        }
+
+        input[type="text"] {
+            width: 100px;
+            height: 30px;
+            outline: none;
+        }
+        span{
+            font-size: 1rem;
+        }
+    </style>
+<body>
+<div class="container">
+    <div>
+        <div id="output">123456</div>
+        <a id="change">看不清？换一张</a></div>
+    <div>
+        <p style="font-size: 20px">
+            &nbsp;&nbsp;<label for="userAnswer">
+            验证码:&nbsp;&nbsp;
+        </label>
+            <input type="text" name="" id="userAnswer"><span id="isSame"></span>
+        </p>
+        <button>提交</button>
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        function parse() {
+            let str = ""
+            //数组存储1-9、a-f
+            const n = [1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd', 'e', 'f'];
+            for (let i = 0; i < 6; i++) {
+                let num = Math.round(Math.random() * (15))
+                //console.log(num)
+                str += n[num];
+            }
+            console.log(str, '@',str.length)
+            if (str.length >= 7){
+                parse()
+                console.log('超过数组长度')
+            }
+            return str
+        }
+
+        document.getElementById('output').innerText = parse()
+        //实现点击刷新验证码
+        document.getElementById('change').onclick = function () {
+            document.getElementById('output').innerText = parse()
+        }
+        //判断验证码是否正确
+        //拿到用户输入的验证码
+        const userAnswer = document.getElementById('userAnswer')
+        let output = document.getElementById('output').innerText
+        let isSame = document.getElementById('isSame')
+        userAnswer.onblur = function () {
+            if(output !== userAnswer.value) {
+                isSame.innerHTML = "验证码不正确"
+                document.getElementById('output').innerText = parse()
+
+            }else{
+                isSame.innerText = "验证码正确"
+            }
+        }
+    }
+
+</script>
+</body>
+</html>

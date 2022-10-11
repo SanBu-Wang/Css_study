@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="demo.css">
+    <!--引入scrollreveal-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+</head>
+<body>
+<div class="container">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+</div>
+<script>
+    //初始化
+    ScrollReveal().reveal('.item', {
+        //移动的距离
+        distance: '500px',
+        //动画的持续时间
+        duration: 1000,
+        //动画的效果
+        easing: 'ease-in-out',
+        //动画的延迟时间
+        delay: 100,
+        //动画的间隔
+        interval: 1000,
+        //透明度
+        opacity: 0,
+        //设置起始动画方向
+        origin: 'right',
+        //设置动画的次数
+        reset: true
+    });
+</script>
+</body>
+</html>

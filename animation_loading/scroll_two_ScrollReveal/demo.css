@@ -1,0 +1,8 @@
+.item{
+    background: skyblue;
+    width: 400px;
+    height: 400px;
+}
+.item:not(:first-child){
+    margin-top: 10px;
+}

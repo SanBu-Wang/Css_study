@@ -1,0 +1,84 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: black;
+
+  .loading {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, transparent, transparent 40%, yellow);
+    border-radius: 50%;
+    animation: animate 1s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: rotate(0deg);
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+      filter: hue-rotate(360deg);
+    }
+  }
+
+  .loading::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    bottom: 10px;
+    right: 10px;
+    background-color: #000000;
+    border-radius: 50%;
+    z-index: 100;
+  }
+
+  .loading::after {/*制作外投影-发光效果*/
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    /*设置四周位置强制把元素拉到一样大*/
+    background: linear-gradient(45deg, transparent, transparent 40%, yellow);
+    border-radius: 50%;
+    z-index: 1;
+    filter: blur(10px);/*关键的发光效果*/
+  }
+
+  .loading-title {
+    position: absolute;
+    color: #fff;
+    font-weight: bolder;
+    animation: title-animate 2s  ease reverse infinite;
+  }
+
+  @keyframes title-animate {
+    0% {
+      color: #fff;
+      filter: blur(1px) hue-rotate(0deg);
+      text-shadow: 0 0 10px yellow,
+      0 0 20px yellow,
+      0 0 40px yellow;
+    }
+    100% {
+      color: #fff;
+      filter: blur(1px) hue-rotate(360deg);
+      text-shadow: 0 0 10px yellow,
+      0 0 20px yellow,
+      0 0 40px yellow;
+    }
+  }
+}
