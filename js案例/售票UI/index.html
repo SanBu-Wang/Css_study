@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .content {
+            width: 550px;
+            height: 504px;
+            /*    设置背景为灰色*/
+            background: #ccc;
+            /*设置水平居中*/
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        .item-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5em;
+            margin-bottom: 10px;
+        }
+
+        .item {
+            width: 80px;
+            height: 40px;
+            background: gray;
+            border-radius: 12px
+        }
+        .film-box{
+            margin: 0 auto;
+            width: 300px;
+            height: 200px;
+            background: #ccc;
+            text-align: center;
+            line-height: 200px;
+            color: white;
+            border: 1px solid #fff;
+            border-radius: 5px
+        }
+        .check_item{
+        /*    橙色背景、红色边框*/
+            background: orange;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <div class="item-box">
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+        <div class="item"></div>
+    </div>
+    <div class="film-box">
+        电影屏幕
+    </div>
+</div>
+<script>
+    //获取所有的座位
+    let items = document.querySelectorAll('.item');
+    //获取电影屏幕
+    let filmBox = document.querySelector('.film-box');
+    //获取所有的座位
+    let itemBox = document.querySelector('.item-box');
+    //定义一个变量，用来记录选中的座位
+    let checkItems = [];
+    //给每个座位添加点击事件
+    items.forEach((item,index)=> {
+        item.addEventListener('click',function(){
+            //通过检测item中是否含有类名check_item来判断item是否选中
+            if(item.classList.contains('check_item')){
+                //移除选中
+                item.classList.remove('check_item')
+                //从统计数组中移除此项
+                checkItems.splice(checkItems.indexOf(index), 1)
+            }else{
+                item.classList.add('check_item')
+                checkItems.push(index)
+            }
+            if(checkItems.length > 0){
+                filmBox.innerHTML = `您选中了${checkItems.length}个座位，分别是${checkItems.join(',')}号座位`
+            }else{
+                filmBox.innerHTML = '电影屏幕'
+            }
+        })
+    })
+    //给电影屏幕添加点击事件
+    filmBox.addEventListener('click', function(e) {
+        if (checkItems.length > 0  ){
+            items.forEach(function(item) {
+                item.classList.remove('check_item');
+            })
+            items = []
+            filmBox.innerHTML = '电影屏幕'
+        }
+    })
+    /*items.forEach((item, index) => {
+        item.addEventListener('click', function () {
+            //判断当前座位是否被选中
+            if (item.classList.contains('check_item')) {
+                //如果被选中，就取消选中
+                item.classList.remove('check_item');
+                //从数组中删除当前座位
+                checkItems.splice(checkItems.indexOf(index), 1);
+            } else {
+                //如果没有被选中，就添加选中
+                item.classList.add('check_item');
+                //将当前座位添加到数组中
+                checkItems.push(index);
+            }
+            //判断数组中是否有座位
+            if (checkItems.length > 0) {
+                //如果有座位，就显示选中的座位
+                filmBox.innerHTML = `您选中了${checkItems.length}个座位，分别是${checkItems.join(',')}号座位`;
+            } else {
+                //如果没有座位，就显示电影屏幕
+                filmBox.innerHTML = '电影屏幕';
+            }
+        })
+    })
+    //给电影屏幕添加点击事件
+    filmBox.addEventListener('click', function () {
+        //判断数组中是否有座位
+        if (checkItems.length > 0) {
+            //如果有座位，就取消选中
+            checkItems.forEach((item) => {
+                items[item].classList.remove('check_item');
+            })
+            //清空数组
+            checkItems = [];
+            //显示电影屏幕
+            filmBox.innerHTML = '电影屏幕';
+        }
+    })*/
+</script>
+</body>
+</html>

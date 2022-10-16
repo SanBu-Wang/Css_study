@@ -1,0 +1,10 @@
+@charset "UTF-8";
+* { padding: 0; margin: 0; overflow: hidden; text-decoration: none; font-family: "微软雅黑",sans-serif; }
+
+body { position: relative; display: flex; justify-content: center; height: 100vh; background: linear-gradient(to right, #86efac, #3b82f6, #9333ea); }
+
+body .container { display: flex; justify-content: space-around; flex-wrap: wrap; width: 1000px; }
+
+body .container .btn { position: relative; top: 0; left: 0; width: 250px; height: 50px; text-transform: capitalize; margin: 0; display: flex; justify-content: center; align-self: center; }
+
+body .container .btn a { position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; display: flex; text-align: center; background: rgba(255, 255, 255, 0.05); box-shadow: 0 15px 35px rgba(0, 0, 93, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.01); border-radius: 30px; padding: 10px; letter-spacing: 1px; overflow: hidden; color: #fff; font-weight: 400px; }
