@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>敏感词过滤</h2>
+<p>
+    <textarea id="area" cols="30" rows="10"></textarea>
+</p>
+
+<p>
+    <input type="submit" value="发布" id="input">
+</p>
+<p id="res"></p>
+
+<script>
+    let getArea = document.getElementById("area")
+    let getInput = document.getElementById("input")
+    let getRes = document.getElementById("res")
+    let keyWords = /他妈的|妈的|日你妈/g
+
+    getInput.onclick = function() {
+        let newArea = getArea.value.replace(keyWords, "*")
+        console.log(newArea);
+    }
+</script>
+</body>
+</html>

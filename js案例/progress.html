@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .fa {
+            width: 400px;
+            margin-top: 30px;
+            border: 1px solid red;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+        }
+
+        .son {
+            width: 0;
+            height: 40px;
+            background-color: purple;
+            text-align: center;
+            line-height: 40px;
+            transition: width 1s;
+        }
+
+        #btn {
+            margin: 10px auto;
+            height: 35px;
+            width: 100px;
+        }
+
+        span {
+            margin-left: 10px;
+            transition: transform 1s;
+        }
+    </style>
+</head>
+<body>
+<div class="fa">
+    <div class="son">
+        <span></span>
+    </div>
+</div>
+<button id="btn">开始</button>
+
+<script>
+    //逻辑：1、利用好定时器来进行递增操作（width，百度分）
+    //2、当变量达到400px时，停止递增
+    let btn = document.getElementById("btn")
+    let son = document.querySelector(".son")
+    let timer = null
+    btn.addEventListener("click", () => {
+        document.querySelector("#btn").disabled = true
+        let num = 0
+        son.style.width = num + "px"
+        if (timer == null) {
+            setInterval(() => {
+                if (num < 400) {
+                    num += 10
+                    son.style.width = num + "px"
+                    son.children[0].innerText = Math.floor(num / 400 * 100) + "%"
+                    //son.children[0].innerText = Math.ceil( num / 400 * 100) + "%"
+                    son.children[0].style.transformX = num * 10 + "px"
+                    son.children[0].style.color = 'white'
+                } else {
+                    timer = null
+                    document.querySelector("#btn").disabled = false
+                }
+            }, 100)
+        }
+    })
+</script>
+</body>
+</html>

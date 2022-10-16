@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            position: relative;
+            height: 200vh;
+            font-family: "微软雅黑",Helvetica,Arial,sans,serif;
+            background: linear-gradient(to right, rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+        }
+        .goTop{
+            position: absolute;
+            bottom: 50px;
+            right: 10px;
+            background:skyblue;
+            color: white;
+            height: 40px;
+            width: 50px;
+            display: none;
+            transition: all 1s linear;
+            text-align: center;
+            line-height: 40px;
+            border-radius:12px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <h2>返回首屏</h2>
+    <div class="goTop">返回</div>
+</div>
+<script>
+    //1、当用户滑动滚动条到达400px时，显示返回顶部按钮，否则隐藏
+    //2、当用户点击返回顶部按钮时，返回顶部
+    //让谁进行滑动
+    let goTop = document.getElementsByClassName("goTop")[0]
+    window.onscroll = function (e) {
+        let res = document.body.scrollTop || document.documentElement.scrollTop
+        console.log(res)
+        if(res >= 400){
+            goTop.style.display = "block"
+        }else{
+            goTop.style.display = "none"
+        }
+    }
+    goTop.onclick = function (e) {
+        //scorllIntoView()方法可以让元素滚动到可视区域,默认是true，表示滚动到顶部，false表示滚动到底部,可以传入一个对象，表示滚动到指定位置
+        document.body.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});//平滑滚动到顶部
+
+    }
+</script>
+</body>
+</html>
