@@ -48,7 +48,9 @@
     }
     goTop.onclick = function (e) {
         //scorllIntoView()方法可以让元素滚动到可视区域,默认是true，表示滚动到顶部，false表示滚动到底部,可以传入一个对象，表示滚动到指定位置
-        document.body.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});//平滑滚动到顶部
+        document.body.scrollIntoView(
+            {behavior: "smooth", block: "start", inline: "nearest"}
+        );//平滑滚动到顶部
 
     }
 </script>
