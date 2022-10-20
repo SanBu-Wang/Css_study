@@ -108,7 +108,7 @@
                 //移除选中
                 item.classList.remove('check_item')
                 //从统计数组中移除此项
-                checkItems.splice(checkItems.indexOf(index), 1)
+                checkItems.splice(checkItems.indexOf(index), 1)//从第几个开始移除，移除几个
             }else{
                 item.classList.add('check_item')
                 checkItems.push(index)

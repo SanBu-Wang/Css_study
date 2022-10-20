@@ -56,13 +56,15 @@
         //alert('startToMove')
         //定义一个speed
         let speed = 5
-        if (timer == null) {
+        if (timer == null) {//防止重复点击
             timer = setInterval(() => {
                 num += speed;
-                moveBox.innerHTML = num
+                moveBox.innerHTML = num + 'px'
                 moveBox.style.left = num + 'px'
                 //判断超过窗口宽度就停止移动(或者做相反运动
                 if (num > window.innerWidth - moveBox.offsetWidth) {//超过窗口宽度
+                    //window.innerWidth是窗口宽度
+                    //moveBox.offsetWidth是盒子宽度
                     //alert('stop')
                     num = 0
                     moveBox.style.left = num + 'px'
@@ -72,6 +74,8 @@
         }
     }
     stop.onclick = () => {
+        moveBox.style.left = 0 + 'px'
+        moveBox.innerHTML = moveBox.style.left
         clearInterval(timer)
     }
 </script>
