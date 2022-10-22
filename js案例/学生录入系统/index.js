@@ -15,12 +15,9 @@ let pushToStu = [
     {xh: '001', name: '', id: '', gender: '', num: '', isDelete: 'false'}
 ]
 
-function deleteStu(idString) {
-    allStu.forEach((item,index) => {
-        if (item.id === idString) {
-            allStu[index].isDelete = true
-        }
-    })
+function deleteStu(index) {
+    allStu.splice(index, 1)
+    console.log(allStu)
 }
 
 //储存所有学生信息
@@ -38,17 +35,17 @@ startGet.onclick = () => {
     console.log(allStu)
     let wri = ''
     //遍历allStu数组拼接字符串
-        for (let i = 0; i < allStu.length; i++) {
-            wri += `
+    for (let i = 0; i < allStu.length; i++) {
+        wri += `
         <tr>
             <td>${'00' + (i + 1)}</td>
             <td>${allStu[i].name}</td>
             <td>${allStu[i].id}</td>
             <td>${allStu[i].gender}</td>
             <td>${allStu[i].number}</td>
-            <td><button class="delete">删除</button></td>
+            <td><button class="delete" onclick="deleteStu(${i})">删除</button></td>
         </tr>`
-        }
-        console.log(wri)
-        tbody.innerHTML = wri
     }
+    console.log(wri)
+    tbody.innerHTML = wri
+}
