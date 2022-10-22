@@ -3,89 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        body {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            font-family: "微软雅黑 Light", sans-serif;
-            word-spacing: 1px;
-        }
-
-        .box {
-            width: 500px;
-            height: 400px;
-            padding-bottom: .4rem;
-            border: grey solid 2px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border-radius: 5px;
-        }
-
-        input:not([type="button"]) {
-            margin-top: 10px;
-            width: 200px;
-            height: 25px;
-            outline: none;
-            border: none;
-            border-bottom: 1px solid cornflowerblue;
-        }
-
-        select {
-            height: 25px;
-            width: 200px;
-            border: none;
-            border-right: 25px solid cornflowerblue;
-            border-bottom: 1px solid Cornflowerblue;
-            color: #736a6a;
-        }
-
-        input[type="button"] {
-            width: 100px;
-            padding: 0.5rem;
-            background-color: transparent;
-            border-radius: 10px;
-            margin-top: .4rem;
-            border: #736a6a 2px solid;
-            color: #736a6a;
-        }
-        #showData{
-            transform: translateY(2px);
-            width: 100%;
-            text-align: center;
-            border-radius: 5px;
-            border: #736a6a 2px solid;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 <div id="fa_box">
     <div class="box">
-        <h1>学生信息登记系统</h1>
-        <label>
-            <input type="text" name="stuName" id="stuName" value="" placeholder="姓名"></label><br>
-        <label>
-            <input type="stuId" name="stuId" id="stuId" placeholder="学号"></label><br>
-        <label>
-            <select id="stuGender" style="margin-top: 10px;">
-                <option selected>---请选择性别---</option>
-                <option>男</option>
-                <option>------</option>
-                <option>女</option>
-                <option>------</option>
-                <option>保密</option>
-            </select>
-        </label>
-        <br>
-        <label>
-            <input type="text" name="phoneNum" id="phoneNum" placeholder="手机号码"></label><br>
-        <label>
-            <input type="button" id="startSend" value="快速添加">
-        </label>
+        <form action="" id="getForm">
+            <h1>学生信息登记系统</h1>
+            <label>
+                <input type="text" name="stuName" id="stuName" value="" placeholder="姓名"></label><br>
+            <label>
+                <input type="text" name="stuId" id="stuId" placeholder="学号"></label><br>
+            <label>
+                <select id="stuGender" style="margin-top: 10px;">
+                    <option selected>---请选择性别---</option>
+                    <option>男</option>
+                    <option>------</option>
+                    <option>女</option>
+                    <option>------</option>
+                    <option>保密</option>
+                </select>
+            </label>
+            <br>
+            <label>
+                <input type="text" name="phoneNum" id="stuNum" placeholder="手机号码"></label><br>
+            <label>
+                <input type="button" id="startSend" value="快速添加">
+            </label>
+        </form>
     </div>
     <table id="showData">
         <tr>
@@ -93,12 +38,7 @@
             <td>学号</td>
             <td>性别</td>
             <td>联系方式</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>操作</td>
         </tr>
     </table>
 </div>

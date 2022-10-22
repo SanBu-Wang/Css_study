@@ -1,25 +1,37 @@
 //拿到学生数据
+//用getName函数获取学生姓名
+let getName = document.getElementById('stuName')
+let getId = document.getElementById('stuId')
+let getGender = document.getElementById('stuGender')
+let getNum = document.getElementById('stuNum')
 
-let getName = document.getElementById('stuName').value
-let getStuId = document.getElementById('stuId').value
-let getStuGender = document.getElementById('stuGender').value
-let getPhoneNumber = document.getElementById('phoneNum').value
-
+//拿到表单
+let getForm = document.getElementById('getForm')
+//拿到表格
+let showData = document.getElementById('showData')
 
 //拿到提交按钮作为事件的入口
 let startGet = document.getElementById('startSend')
 //利用对象来存储学生信息
-let pushToStu = {
-    name: 'pushToStu',
-    id: 'pushToStu',
-    gender: 'male',
-    phoneNum: '123',
-}
+let pushToStu = {}
+let a = showData.childNodes
+let b = '<tr>'
 
 startGet.onclick = () => {
-    //alert('Start send clicked')
-    console.log(getName, getStuId, getStuGender, getPhoneNumber)
-    pushToStu.name = getName
-    console.log(pushToStu.name)
+    pushToStu.name = getName.value
+    pushToStu.id = getId.value
+    pushToStu.dender = getGender.value
+    pushToStu.num = getNum.value
+    //console.log(pushToStu.name)
 
+    //创建表格
+    b+=`<td>${pushToStu.name}</td>
+    <td>${pushToStu.id}</td>
+    <td>${pushToStu.dender}</td>
+    <td>${pushToStu.num}</td>
+    `
+    b+='</tr>'
+
+    //将表格插入到表格中
+    showData.innerHTML += b
 }

@@ -1,0 +1,82 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: "微软雅黑 Light", sans-serif;
+    word-spacing: 1px;
+}
+
+.box {
+    width: 500px;
+    height: 400px;
+    padding-bottom: .4rem;
+    border: grey solid 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+input:not([type="button"]) {
+    margin-top: 10px;
+    width: 200px;
+    height: 25px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid cornflowerblue;
+}
+
+select {
+    height: 25px;
+    width: 200px;
+    border: none;
+    border-right: 25px solid cornflowerblue;
+    border-bottom: 1px solid Cornflowerblue;
+    color: #736a6a;
+}
+
+#startSend {
+    position: relative;
+    width: 100px;
+    padding: 0.5rem;
+    background-color: transparent;
+    border-radius: .3rem;
+    margin-top: .4rem;
+    border: #736a6a .8px solid;
+    color: #736a6a;
+    transition: border .7s ease-in-out;
+}
+
+#startSend:hover {
+    border: solid .8px cornflowerblue;
+    color: #fff;
+    background-color: cornflowerblue;
+    outline: none;
+}
+
+
+#showData {
+    transform: translateY(2px);
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    border-collapse: collapse;
+    color: #fff;
+    border: none;
+}
+
+#showData tr:first-child td {
+    background: cornflowerblue;
+    border: 1px solid cornflowerblue;
+    height: 2.2rem;
+}
+
+#showData tr:not(:first-child) td {
+    background: #fff;
+    height: 1.8rem;
+    /*border: 1px solid #736a6a;*/
+    border-radius: 5px;
+}
