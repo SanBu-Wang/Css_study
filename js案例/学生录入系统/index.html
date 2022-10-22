@@ -16,11 +16,8 @@
                 <input type="text" name="stuId" id="stuId" placeholder="学号"></label><br>
             <label>
                 <select id="stuGender" style="margin-top: 10px;">
-                    <option selected>---请选择性别---</option>
                     <option>男</option>
-                    <option>------</option>
                     <option>女</option>
-                    <option>------</option>
                     <option>保密</option>
                 </select>
             </label>
@@ -33,13 +30,17 @@
         </form>
     </div>
     <table id="showData">
-        <tr>
-            <td>姓名</td>
-            <td>学号</td>
-            <td>性别</td>
-            <td>联系方式</td>
-            <td>操作</td>
-        </tr>
+        <thead>
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>学号</td>
+                <td>性别</td>
+                <td>联系方式</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody id="main"></tbody>
     </table>
 </div>
 <script type="text/javascript" src="./index.js"></script>

@@ -64,19 +64,21 @@ select {
     text-align: center;
     border-radius: 5px;
     border-collapse: collapse;
-    color: #fff;
+    color: gray;
     border: none;
 }
 
-#showData tr:first-child td {
+
+#showData thead tr td {
     background: cornflowerblue;
     border: 1px solid cornflowerblue;
     height: 2.2rem;
 }
 
-#showData tr:not(:first-child) td {
+#showData tbody tr td {
     background: #fff;
     height: 1.8rem;
-    /*border: 1px solid #736a6a;*/
+    border: 1px solid cornflowerblue;
     border-radius: 5px;
+    color: gray;
 }
