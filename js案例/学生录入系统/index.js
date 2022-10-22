@@ -15,9 +15,12 @@ let pushToStu = [
     {xh: '001', name: '', id: '', gender: '', num: '', isDelete: 'false'}
 ]
 
-function deleteStu(index) {
-    allStu.splice(index, 1)
-    console.log(allStu)
+function deleteStu(i) {
+    allStu.splice(i, 1)//删除数组中的元素
+    let removeTr = document.getElementsByClassName('R-ATr')//拿到所有的tr
+    //删除后重新DOM，移除对应的tr
+    tbody.removeChild(removeTr[i])//移除对应的tr
+    console.log(allStu)//打印出删除后的数组
 }
 
 //储存所有学生信息
@@ -37,7 +40,7 @@ startGet.onclick = () => {
     //遍历allStu数组拼接字符串
     for (let i = 0; i < allStu.length; i++) {
         wri += `
-        <tr>
+        <tr class="R-ATr">
             <td>${'00' + (i + 1)}</td>
             <td>${allStu[i].name}</td>
             <td>${allStu[i].id}</td>
