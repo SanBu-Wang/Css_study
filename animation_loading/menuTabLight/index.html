@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    BOXICONS-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<nav class="nav">
+
+    <ul class="nav_links">
+        <li class="nav_link">
+            <a href="#"><i class="bx bx-home-alt-2"></i></a>
+        </li>
+        <li class="nav_link">
+            <a href="#"><i class='bx bx-heart'></i></a>
+        </li>
+        <li class="nav_link">
+            <a href="#"><i class='bx bx-plus-circle'></i></a>
+        </li>
+        <li class="nav_link">
+            <a href="#"><i class='bx bx-user-circle'></i></a>
+        </li>
+        <li class="nav_link">
+            <a href="#"><i class="bx bx-bell"></i></a>
+        </li>
+        <div class="nav_light"></div>
+    </ul>
+</nav>
+<script>
+    const navLinks = document.querySelectorAll(".nav_link");
+    const navLight = document.querySelector(".nav_light");
+
+    function moveLight({offsetLeft, offsetWidth}) {//offsetLeft: left position of the element
+        navLight.style.left = `${ (offsetLeft - offsetWidth / 4) + 8.3 }px`//offsetWidth: width of the element
+    }
+    function activeLink(link){
+        navLinks.forEach(navLink => navLink.classList.remove("active"));
+        link.classList.add("active");
+    }
+
+    navLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            moveLight(event.target)//event.target: the element that triggered the event
+            activeLink(link)
+        })
+    })
+</script>
+</body>
+</html>
