@@ -31,15 +31,15 @@
     </ul>
 </nav>
 <script>
-    const navLinks = document.querySelectorAll(".nav_link");
-    const navLight = document.querySelector(".nav_light");
+    const navLinks = document.querySelectorAll(".nav_link")
+    const navLight = document.querySelector(".nav_light")
 
     function moveLight({offsetLeft, offsetWidth}) {//offsetLeft: left position of the element
         navLight.style.left = `${ (offsetLeft - offsetWidth / 4) + 8.3 }px`//offsetWidth: width of the element
     }
     function activeLink(link){
         navLinks.forEach(navLink => navLink.classList.remove("active"));
-        link.classList.add("active");
+        link.classList.add("active")
     }
 
     navLinks.forEach((link) => {
