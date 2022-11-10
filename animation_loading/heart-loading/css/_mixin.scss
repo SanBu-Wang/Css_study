@@ -1,0 +1,5 @@
+@mixin li-style($li-color,$love,$delayTime) {
+  background-color: $li-color;
+  animation: $love 5s $delayTime infinite;
+  box-shadow: 0 0 5px $li-color;
+}
